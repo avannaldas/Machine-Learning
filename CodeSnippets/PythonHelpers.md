@@ -29,7 +29,7 @@ def shrinkDf(df, verbose, dispInfo):
     for col in df.columns:
         if (df[col].dtype != object) and (np.isfinite(df[col]).all()):
             if(verbose==True):
-                print("Column: ", col, ", original dtype: ", df[col].dtype)
+                coltype = df[col].dtype
                 
             IsInt = False
             maxValue = df[col].max()
@@ -70,10 +70,11 @@ def shrinkDf(df, verbose, dispInfo):
                     df[col] = df[col].astype(np.float64)   
 
             if(verbose==True):
-                print("Column: ", col, ", converted dtype: ",df[col].dtype)
+                print("Column: ", col, ", original dtype: ", coltype, ", converted dtype: ",df[col].dtype)
    
     if(dispInfo):
         processedSize = df.memory_usage().sum()
-        print("Shrinked by ", "{0:.2f}".format(((initialSize - processedSize) / (1024**2))), " MB, to ", "{0:.2f}".format(100*processedSize/initialSize), "% of original size")
+        print("Shrinked by ", "{0:.2f}".format(((initialSize - processedSize) / (1024**2))), \
+            " MB, to ", "{0:.2f}".format(100*processedSize/initialSize), "% of original size")
 ```
 ----------------------------------------------------------------------------------------------------------------
