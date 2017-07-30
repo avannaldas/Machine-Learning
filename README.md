@@ -1,2 +1,6 @@
 # Machine Learning
-Machine Learning Practice problems
+Includes...
+* Machine Learning Practice problems
+* Machine Learning implementations from Scratch
+* Some python code snippets
+
