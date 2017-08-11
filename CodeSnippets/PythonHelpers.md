@@ -7,11 +7,31 @@ print([v for v in globals().keys() if (v.startswith('df') or v.startswith('var')
 ```python
 def listFilesInCurrent(dir=""):
     from subprocess import check_output
+    import platform
     platformText = (platform.platform(terse=1)).lower()
     if('windows' in platformText):
         print(check_output("cmd /k dir " + dir + " /b").decode(sys.stdout.encoding))
     elif('linux' in platformText):
         print(check_output(["ls", ['' if dir == "" else ("../" + dir)]]).decode("utf8"))
+```
+
+#### Text to Speech in Windows (linux not yet supported)
+```python
+def speakText(txt="Hello"):
+    from subprocess import check_output
+    import platform
+    platformText = (platform.platform(terse=1)).lower()
+    if('windows' in platformText):
+        check_output('mshta vbscript:Execute("CreateObject(""SAPI.SpVoice"").Speak(""' + txt + '"")(window.close)")')
+    elif('linux' in platformText):
+        print('Not supported on linux')
+```
+
+#### Emit sound in Hertz
+```python
+import winsound
+#frequency in Hertz and duration to play in milliseconds
+winsound.Beep(100,1000)
 ```
 
 #### Print Markdown in IPython Jupyter Notebook
