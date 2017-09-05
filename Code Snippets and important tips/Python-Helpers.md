@@ -3,7 +3,7 @@
 print([v for v in globals().keys() if (v.startswith('df') or v.startswith('var') or v.startswith('f'))])
 ```
 
-#### List files in current directory or a subdirectory of current directory
+#### List files in current directory or a given subdirectory in current directory
 ```python
 def listFilesIn(dir=""):
     from subprocess import check_output
