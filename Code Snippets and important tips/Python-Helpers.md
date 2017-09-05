@@ -5,9 +5,10 @@ print([v for v in globals().keys() if (v.startswith('df') or v.startswith('var')
 
 #### List files in current directory or a subdirectory of current directory
 ```python
-def listFilesInCurrent(dir=""):
+def listFilesIn(dir=""):
     from subprocess import check_output
     import platform
+    import sys
     platformText = (platform.platform(terse=1)).lower()
     if('windows' in platformText):
         print(check_output("cmd /k dir " + dir + " /b").decode(sys.stdout.encoding))
@@ -39,6 +40,11 @@ winsound.Beep(100,1000)
 def printmd(string):
     from IPython.display import Markdown, display
     display(Markdown(string))
+```
+
+#### Add a pandas boolean value column based on if value exists in other column
+```python
+df['NewCol'] = df.apply(lambda x: pd.notnull(x['OtherCol']), axis=1)
 ```
 
 #### Shrink pandas dataframe
