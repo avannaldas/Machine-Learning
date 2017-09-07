@@ -18,7 +18,7 @@ def listFilesIn(dir=""):
         print(check_output(["ls", ['' if dir == "" else ("../" + dir)]]).decode("utf8"))
 ```
 
-### Pandas display options
+#### Pandas display options
 ```python
 import pandas as pd
 pd.set_option('display.max_columns', 100)
@@ -26,7 +26,7 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_colwidth', 500)
 ```
 
-### Custom filter on Pandas column
+#### Custom filter on Pandas column
 ```python
 def get_summary(c):
     # do something, compute and assign to new_c
@@ -35,7 +35,7 @@ def get_summary(c):
 df['col'].apply(lambda x: get_summary(c))
 ```
 
-### Custom filter on Python list
+#### Custom filter on Python list
 ```python
 def is_okay(i):
     # assign boolean outcome to result
@@ -131,4 +131,3 @@ def shrinkDf(df, verbose, dispInfo):
         print("Shrinked by ", "{0:.2f}".format(((initialSize - processedSize) / (1024**2))), \
             " MB, to ", "{0:.2f}".format(100*processedSize/initialSize), "% of original size")
 ```
-----------------------------------------------------------------------------------------------------------------
