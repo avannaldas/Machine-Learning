@@ -16,6 +16,14 @@ def listFilesIn(dir=""):
         print(check_output(["ls", ['' if dir == "" else ("../" + dir)]]).decode("utf8"))
 ```
 
+### Pandas display options
+```python
+import pandas as pd
+pd.set_option('display.max_columns', 100)
+pd.set_option('display.max_rows', 500)
+pd.set_option('display.max_colwidth', 500)
+```
+
 #### Text to Speech in Windows (linux not yet supported)
 ```python
 def speakText(txt="Hello"):
