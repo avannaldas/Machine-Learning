@@ -24,6 +24,15 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_colwidth', 500)
 ```
 
+### Custom filter on Pandas column
+```python
+def get_summary(c):
+    # do something, compute and assign to new_c
+    return new_c
+
+df['col'].apply(lambda x: get_summary(c))
+```
+
 #### Text to Speech in Windows (linux not yet supported)
 ```python
 def speakText(txt="Hello"):
