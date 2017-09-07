@@ -1,3 +1,5 @@
+> Use browser's find in page (`Ctrl+F` or `Command+F`) to search what you need
+
 #### Print variables in scope with some filter
 ```python
 print([v for v in globals().keys() if (v.startswith('df') or v.startswith('var') or v.startswith('f'))])
@@ -31,6 +33,15 @@ def get_summary(c):
     return new_c
 
 df['col'].apply(lambda x: get_summary(c))
+```
+
+### Custom filter on Python list
+```python
+def is_okay(i):
+    # assign boolean outcome to result
+    return result
+
+new_list = [i for i in list_to_filter if is_okay(i)]
 ```
 
 #### Text to Speech in Windows (linux not yet supported)
